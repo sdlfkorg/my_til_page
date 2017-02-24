@@ -1,0 +1,12 @@
+<a href="{% url 'write' %}">create a view</a><br>
+
+<br>
+
+{% for item in note_list %}
+
+<a href="{% url 'detail' pk=item.pk %}">{{ item.title }}</a><br>
+{{ item.content }}<br>
+<a href="{% url 'delete' pk=item.pk %}">delete</a><br>
+<br>
+
+{% endfor %}

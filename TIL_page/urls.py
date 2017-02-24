@@ -15,7 +15,17 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
+from note import views
+# from django.urls import reverse
+
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+    url(r'^note/$', views.NoteListView.as_view(), name="list"),
+    url(r'^note/(?P<pk>\d+)$', views.NoteDetailView.as_view(), name="detail"),
+    url(r'^note/write$', views.NoteCreateView.as_view(), name="write"),
+    url(r'^note/delete/(?P<pk>\d+)$', views.NoteDeleteView.as_view(), name="delete"),
+
+    
+
 ]
